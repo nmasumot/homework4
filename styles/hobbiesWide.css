@@ -1,0 +1,103 @@
+:root {
+    --main-text-color: #121420;
+    --main-body-color: #597081;
+    --main-background-color: #FFFFFF;
+}
+
+nav {
+    display:flex;
+    justify-content:center;
+    width:100%;
+    gap:2%;
+}
+
+a {
+    text-decoration: none;
+    display:block;
+    background-color: lightblue;
+    border:black solid 2px;
+    padding:2%;
+    border-radius:10%;
+}
+
+a:hover {
+    color:blue;
+    background-color: rgb(178, 230, 248);
+}
+
+* {
+    color:var(--main-text-color);
+}
+
+header {
+    text-align:center;
+    width:40%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body {
+    min-height:95vh;
+    width:95vw;
+    background-color: var(--main-body-color);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between;
+}
+
+main {
+    background-color: var(--main-background-color);
+    min-width:50%;
+    min-height:50%;
+    max-width:900px;
+    border:#FFFFFF solid;
+    border-radius:4%;
+    font-size:2em;
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:column;
+    justify-content: space-between;
+}
+
+.project {
+    display:grid;
+    grid-template-columns: repeat(2,50%);
+    grid-template-rows: auto;
+    grid-template-areas:"header header" "picture1 picture2" "picture1 picture2" "subtitle ." "description description" "link link";
+}
+
+h2 {
+    grid-area: header;
+    text-align: center;
+}
+
+#project1picture1 {
+    grid-area: picture1;
+    justify-self: center;
+}
+
+#project1picture2 {
+    grid-area: picture2;
+    justify-self: center;
+}
+
+h3 {
+    grid-area: subtitle;
+}
+.project > p {
+    grid-area: description;
+    font-size:.75em;
+}
+.project > a {
+    grid-area:link;
+    border-radius: 0%;
+    width:50%;
+    justify-self: center;
+    text-align: center;
+}
+
+h1 {
+    font-size:3em;
+}

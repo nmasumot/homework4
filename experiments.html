@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Nicholas Masumoto's Portfolio Website Experiments Page">
+        <meta name="author" content="Nicholas Masumoto">
+        <title>Nicholas Masumoto's Portfolio Website Experiments Page</title>
+        <link href="images/favicon.ico" rel="icon">
+
+        <style>
+            h1 {color:black;}
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Experiments</h1>
+            <nav>
+                <a href="/index.html">Home</a>
+                <a href="/projects.html">Projects</a>
+                <a href="/contact.html">Contact Me</a>
+                <a href="/hobbies.html">Hobbies</a>
+                <a href="/experiments.html">Experiments</a>
+            </nav>
+        </header>
+
+        <main>
+            <h2>Different tags</h2>
+            <p>Here I am <em>testing</em> different tags used inline.<br>
+            <span style="color: blue"><i>This line is blue.</i></span><br>
+            This <svg width="50" height="50"><circle cx="25" cy="25" r="20" stroke="orange" stroke-width="5" fill="orange"></circle></svg> is orange
+            </p>
+            <p>The HTML <code>svg</code> tag was used to draw the orange circle above</p>
+            <aside>The <code>span</code> and <code>i</code> tags were used to make the blue line look that way.</aside>
+            <hr>
+
+            <pre>This is using
+the pre tag where line breaks and 
+s   p   a   c   e   s
+are all kept. 
+            </pre>
+
+            <hr>
+            
+            <picture>
+                <source media="(min-width:2364px)" srcset="images/largeToriGate.JPG">
+                <source media="(min-width:1672px)" srcset="images/mediumToriGate.JPG">
+                <img src="images/smallToriGate.JPG" alt="Tori Gate from Fushimi Inari Shrine" style="width:auto;">
+            </picture>
+
+            <details>
+                <summary>Fushimi Inari Shrine</summary>
+                <p>Fushimi Inari Shrine is known for its many tori gates where thousands are lined up going up the hill.</p>
+            </details>
+
+            <hr>
+
+            <canvas id="testCanvas">This browser does not support canvas</canvas>
+            <script>
+                var canvas = document.getElementById("testCanvas");
+                var ctx = canvas.getContext("2d");
+                ctx.fillStyle = "#0000FF"
+                ctx.fillRect(10,10,80,80);
+            </script>
+
+            <hr>
+            <p>Check out this website!</p>
+            <iframe src="https://realkana.com/" title="Hiragana Learning Website" width="500" height="700"></iframe>
+
+            <hr>
+            <p>Slow motion video of fountain in Kanazawa</p>
+            <video width="640" height="400" controls>
+                <source src="videoandaudio/IMG_1644.mp4" type="video/mp4">
+                This browser does not support video.
+            </video>
+
+            <hr>
+
+            <p>Random Audio File</p>
+            <audio controls>
+                <source src="videoandaudio/soft-piano-100-bpm-121529.mp3" type="audio/mpeg">
+            </audio>
+
+            <hr>
+
+            <p>Here Are Some Cities</p>
+            <p>Japan</p>
+            <ul>
+                <li>Tokyo</li>
+                <li>Kyoto</li>
+            </ul>
+            <p>California</p>
+            <ol>
+                <li>Los Angeles</li>
+                <li>San Diego</li>
+            </ol>
+
+            <label for="Cities">Choose a City</label>
+            <select name="Cities" id="Cities">
+                <optgroup label="California Cities">
+                    <option value="Los Angeles">Los Angeles</option>
+                    <option value="San Diego">San Diego</option>
+                </optgroup>
+                <optgroup label="Japan Cities">
+                    <option value="Tokyo">Tokyo</option>
+                    <option value="Kyoto">Kyoto</option>
+                </optgroup>
+            </select>
+
+            <hr>
+
+            <form>
+                <fieldset>
+                    <legend>User Information</legend>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name"><br>
+                    <label for="area">Text area</label>
+                    <textarea id="area" name="area" rows="5" cols="50"></textarea>
+                    <br>
+                    
+
+                    <label for="chooseCities">Choose a City From the List</label>
+                    <input type ="text" list="chooseCities1" name="chooseCities" id="chooseCities">
+
+                    <datalist id="chooseCities1">
+                        <option value="Tokyo">
+                        <option value="Kyoto">
+                        <option value="Los Angeles">
+                        <option value="San Diego">
+                    </datalist>
+
+                    <br>
+                    <input type="submit" value="Submit">
+                </fieldset>
+            </form>
+
+            <hr>
+            
+            <button onclick="showContent()">Show image</button>
+            <template>
+                <h2>Itsukushima Shrine</h2>
+                <img src="images/IMG_0768.JPG" width="640" height="400" alt="Itsukushima Shrine">
+            </template>
+            <script>
+                function showContent(){
+                    var temp = document.getElementsByTagName("template")[0];
+                    var clon = temp.content.cloneNode(true);
+                    document.body.appendChild(clon);
+                }
+            </script>
+
+            <hr>
+
+            <table>
+                <caption>City and Country</caption>
+                <colgroup>
+                    <col style="background-color:lightblue">
+                    <col style="background-color:orange">
+                </colgroup>
+                <tr>
+                    <th>City</th>
+                    <th>Country</th>
+                </tr>
+                <tr>
+                    <td>Los Angeles</td>
+                    <td>United States</td>
+                </tr>
+                <tr>
+                    <td>Tokyo</td>
+                    <td>Japan</td>
+                </tr>
+            </table>
+            
+            <hr>
+
+            <figure>
+                <img src="images/IMG_0748.JPG" alt="Meal" width="640" height="400">
+                <figcaption>Fig.1 Tuna Bowl Meal Set</figcaption>
+            </figure>
+
+        </main>
+
+        <footer>
+            <p>Author: Nicholas Masumoto</p>
+        </footer>
+    </body>
+</html>
