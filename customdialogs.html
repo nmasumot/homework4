@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Custom Dialogs</title>
+        
+    </head>
+    <body>
+        <script type="text/javascript" src="DOMPurify-main/dist/purify.min.js"></script>
+        <script type="module">import { alertListener,confirmListener,promptListener,spromptListener } from "./customdialog.js";
+        alertListener();confirmListener();promptListener();spromptListener();</script>
+        <h1>Custom Dialogs?</h1>
+        <a href="nativedialogs.html">Simple Dialogs Page</a>
+        <br>
+        <br>
+        <button type="button" id="alert-button">Alert</button>
+        <button type="button" id="confirm-button">Confirm</button>
+        <button type="button" id="prompt-button">Prompt</button>
+        <button type="button" id="safer-prompt-button">Safer Prompt</button>
+        <hr>
+        <dialog id="alertDialog">
+            <p>Alert pressed!</p>
+            <form method="dialog">
+                <button id="alertOk">Ok</button>
+            </form>
+        </dialog>
+        <dialog id="cDialog">
+            <p>Do you confirm this?</p>
+            <form method="dialog">
+                <button id="confirm">Ok</button>
+                <button id="cancel">Cancel</button>
+            </form>
+        </dialog>
+        <dialog id="promptDialog">
+            <p>What is your name?</p>
+            <form method="dialog">
+                <input type = "text" value = "" id="input"></textarea>
+                <br>
+                <button id="prompt-confirm">Ok</button>
+                <button id="prompt-cancel">Cancel</button>
+            </form>
+        </dialog>
+        <dialog id="safepromptDialog">
+            <p>What is your name?</p>
+            <form method="dialog">
+                <input type = "text" value = "" id="sinput"></textarea>
+                <br>
+                <button id="sprompt-confirm">Ok</button>
+                <button id="sprompt-cancel">Cancel</button>
+            </form>
+        </dialog>
+        <output id="out"></output>
+
+        
+            
+        
+    </body>
+</html>

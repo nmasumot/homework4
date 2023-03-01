@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Crud Blog Posts</title>
+    </head>
+
+    <body>
+        <script type="text/javascript" src="DOMPurify-main/dist/purify.min.js"></script>
+        <script type="module">import { promptListener } from "./blog.js"; 
+        promptListener();</script>
+        <header>
+            <h1>
+                Blog Posts
+            </h1>
+            <hr>
+        </header>
+        <main id="newPost">
+            <section>
+                <h2>Travel</h2>
+                <p>2023-03-01</p>
+                <p>Post about Travel. Another Sentence.</p>
+                <button type="button" id="deleteFirst">Delete</button>
+                <button type="button" id="editFirst">Edit</button>
+                <hr>
+            </section>
+        </main>
+        <dialog id="blogPrompt">
+            <form method="dialog">
+                <label for="bTitle">Title:</label>
+                <input type="text" name="bTitle" id="bTitle">
+                <br>
+                <label for="bDate">Date:</label>
+                <input type="date" name="bDate" id="bDate">
+                <br>
+                <label for="bSummary">Summary:</label>
+                <br>
+                <textarea name="bSummary" id="bSummary"></textarea>
+                <br>
+                <button id="prompt-confirm">Ok</button>
+                <button id="prompt-cancel">Cancel</button>
+            </form>
+        </dialog>
+        <dialog id="eblogPrompt">
+            <form method="dialog">
+                <label for="eTitle">Title:</label>
+                <input type="text" name="eTitle" id="eTitle">
+                <br>
+                <label for="eDate">Date:</label>
+                <input type="date" name="eDate" id="eDate">
+                <br>
+                <label for="eSummary">Summary:</label>
+                <br>
+                <textarea name="eSummary" id="eSummary"></textarea>
+                <br>
+                <button id="eprompt-confirm">Ok</button>
+                <button id="eprompt-cancel">Cancel</button>
+            </form>
+        </dialog>
+        <dialog id="e1blogPrompt">
+            <form method="dialog">
+                <label for="e1Title">Title:</label>
+                <input type="text" name="e1Title" id="e1Title">
+                <br>
+                <label for="eDate">Date:</label>
+                <input type="date" name="e1Date" id="e1Date">
+                <br>
+                <label for="e1Summary">Summary:</label>
+                <br>
+                <textarea name="e1Summary" id="e1Summary"></textarea>
+                <br>
+                <button id="e1prompt-confirm">Ok</button>
+                <button id="e1prompt-cancel">Cancel</button>
+            </form>
+        </dialog>
+        <footer>
+            <button type="button" id="add-button">Add Post</button>
+        </footer>
+        <script>
+            let firstDel = document.getElementById('deleteFirst');
+            firstDel.addEventListener('click',()=>{
+            let buttonClicked = firstDel;
+            let parent = buttonClicked.parentNode;
+            while(parent.firstChild != null){
+                parent.firstChild.remove();
+            }
+            parent.remove();});
+
+            const e1promptDia = document.getElementById('e1blogPrompt');
+            const e1pconfirmButton = document.getElementById('e1prompt-confirm');
+            e1pconfirmButton.addEventListener('click', e1pconfirm);
+
+            let firstEdit = document.getElementById('editFirst')
+            firstEdit.addEventListener('click',()=>{
+                let parent = document.getElementById('newPost').childNodes[1];
+                let eTitle = parent.childNodes[1].innerHTML;
+                let eDate = parent.childNodes[3].innerHTML;
+                let eSummary = parent.childNodes[5].innerHTML;
+                e1promptDia.showModal();
+                let title = document.getElementById('e1Title');
+                let date = document.getElementById('e1Date');
+                let summary = document.getElementById('e1Summary');
+                title.value = eTitle;
+                date.value = eDate;
+                summary.value = eSummary;
+            }); 
+
+            function e1pconfirm(){
+                let title = document.getElementById('e1Title').value;
+                console.log(title);
+                let date = document.getElementById('e1Date').value;
+                let summary = document.getElementById('e1Summary').value;
+                let curSec = document.getElementById('newPost').childNodes[1];
+                console.log(curSec.childNodes[1]);
+                curSec.childNodes[1].innerHTML = title;
+                curSec.childNodes[3].innerHTML = date;
+                curSec.childNodes[5].innerHTML = summary;
+            }
+        </script>
+    </body>
+</html>
