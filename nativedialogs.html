@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Native Dialogs</title>
+    </head>
+    <body>
+        <script type="text/javascript" src="DOMPurify-main/dist/purify.min.js"></script>
+        <h1>Simple Dialogs?</h1>
+        <a href="customdialogs.html">Custom Dialogs Page</a>
+        <br>
+        <br>
+        <button type="button" id="alert-button">Alert</button>
+        <button type="button" id="confirm-button">Confirm</button>
+        <button type="button" id="prompt-button">Prompt</button>
+        <button type="button" id="safer-prompt-button">Safer Prompt</button>
+        <hr>
+        <script>
+            function confirmFunction(){
+                let el = document.getElementById("out");
+                el.innerHTML = "";
+                setTimeout(function co(){
+                    let output = confirm("Do you confirm this?");
+                    el.innerHTML = `Confirm result: ${output}`;
+                }, 50);
+                
+
+            }
+
+            function promptFunction(){
+                let el = document.getElementById("out");
+                el.innerHTML = "";
+                setTimeout(function delay(){
+                    let name = prompt("What is your name?");
+                    if(name === null || name === ""){
+                        name = "User didn't enter anything";
+                    }
+                    el.innerHTML = `Prompt result: ${name}`;
+                },50);
+                
+                
+            }
+
+            function saferFunction(){
+                let el = document.getElementById("out");
+                el.innerHTML = "";
+                setTimeout(function delay(){
+                    let name = prompt("What is your name?");
+                    let cleanName = DOMPurify.sanitize(name);
+                    if(cleanName === null || cleanName === ""){
+                        cleanName = "User didn't enter anything";
+                    }
+                    el.innerHTML = `Prompt result: ${cleanName}`;
+                },50);
+            }
+
+            const alertBtn = document.getElementById("alert-button");
+            alertBtn.addEventListener("click", ()=>{
+                let el = document.getElementById("out");
+                el.innerHTML = "";
+                setTimeout(function delay(){
+                    alert("Alert Generated");
+                },50);
+            });
+            const confirmBtn = document.getElementById("confirm-button");
+            confirmBtn.addEventListener("click", confirmFunction)
+            const promptBtn = document.getElementById("prompt-button");
+            promptBtn.addEventListener("click", promptFunction);
+            const saferPromptBtn = document.getElementById("safer-prompt-button");
+            saferPromptBtn.addEventListener("click", saferFunction);
+            
+        </script>
+
+        <output id="out"></output>
+        
+    </body>
+</html>
